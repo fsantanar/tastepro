@@ -1,0 +1,542 @@
+/* ================================
+   TastePro - Estilos principales
+   ================================ */
+
+/* Variables de colores y estilos */
+:root {
+  --primary: #1a472a;
+  --secondary: #d4af37;
+  --accent: #c41e3a;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+}
+
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  color: var(--dark);
+  line-height: 1.6;
+  background-color: #fefefe;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+h2:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--secondary);
+  border-radius: 2px;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--secondary);
+  color: var(--dark);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+header {
+  background-color: white;
+  box-shadow: none; /* sin sombra al inicio */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* sombra solo cuando hay scroll */
+header.scrolled {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.logo-subtitle {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+  /* overlay oscuro + imagen local */
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('../img/montaje_plato.jpg');
+
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 180px 0 100px;
+  margin-top: 70px;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.about-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+}
+
+.about-card h3 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.about-card h3 i {
+  margin-right: 10px;
+  color: var(--secondary);
+}
+
+/* Values Section */
+.values {
+  background-color: #f8f9fa;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.value-item {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+.value-item h3 {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+/* Team Section */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.team-member {
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.member-info {
+  padding: 25px;
+}
+
+.member-info h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.member-role {
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Quote Section */
+.quote {
+  background-color: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.quote h2 {
+  color: white;
+}
+
+.quote h2:after {
+  background-color: var(--secondary);
+}
+
+.quote-text {
+  font-size: 1.4rem;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  position: relative;
+}
+
+.quote-text:before, .quote-text:after {
+  content: '"';
+  font-size: 3rem;
+  color: var(--secondary);
+  position: absolute;
+  opacity: 0.5;
+}
+
+.quote-text:before {
+  top: -20px;
+  left: -40px;
+}
+
+.quote-text:after {
+  bottom: -40px;
+  right: -40px;
+}
+
+/* CTA Section */
+.cta {
+  background: linear-gradient(to right, var(--primary), #2c5e42);
+  color: white;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.cta h2 {
+  color: white;
+}
+
+.cta h2:after {
+  background-color: var(--secondary);
+}
+
+.cta p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  font-size: 1.2rem;
+}
+
+.cta .btn {
+  background-color: var(--secondary);
+  color: var(--dark);
+}
+
+.cta .btn:hover {
+  background-color: white;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark);
+  color: white;
+  padding: 60px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h3 {
+  color: var(--secondary);
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.footer-col p, .footer-col a {
+  color: #adb5bd;
+  margin-bottom: 10px;
+  display: block;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: var(--secondary);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #495057;
+  color: #adb5bd;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 5px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
+/* Enlace activo del menú: más visible */
+nav a.active {
+  color: var(--primary);
+  font-weight: 700;
+  position: relative;
+}
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;   /* ajusta si queda muy cerca/lejos */
+  height: 3px;
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+/* Estado del formulario (éxito / error) */
+.form-status {
+  display: none;
+  margin-top: 12px;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+.form-status.is-success {
+  color: #0f5132;
+  background: #d1e7dd;
+  border-color: #badbcc;
+}
+
+.form-status.is-error {
+  color: #842029;
+  background: #f8d7da;
+  border-color: #f5c2c7;
+}
+
+/* === FORMULARIO DE CONTACTO (Diseño TastePro) === */
+#contact-form {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px 40px;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  color: white;
+}
+
+#contact-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--light);
+  letter-spacing: 0.5px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--dark);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--secondary);
+  transform: translateY(-2px);
+}
+
+#contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Distribución de columnas */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-row > div {
+  flex: 1;
+  min-width: 250px;
+}
+
+.form-row .full {
+  flex-basis: 100%;
+}
+
+/* Botón más consistente con el resto */
+#contact-form .btn {
+  margin-top: 10px;
+  padding: 12px 35px;
+  background-color: var(--secondary);
+  color: var(--dark);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#contact-form .btn:hover {
+  background-color: white;
+  color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 600px) {
+  #contact-form {
+    padding: 20px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
