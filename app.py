@@ -40,7 +40,7 @@ def contact():
 def send_email(name: str, email: str, message: str):
     host    = os.getenv("EMAIL_HOST")
     port    = int(os.getenv("EMAIL_PORT", "587"))
-    from_addr    = os.getenv("EMAIL_USER")
+    user    = os.getenv("EMAIL_USER")
     pwd     = os.getenv("EMAIL_PASSWORD")
     to_addr = os.getenv("EMAIL_TO")                   # dónde recibes contactos
     use_tls = os.getenv("EMAIL_TLS", "1") == "1"
@@ -58,7 +58,7 @@ def send_email(name: str, email: str, message: str):
     )
     admin_msg = MIMEText(admin_body, "plain", "utf-8")
     admin_msg["Subject"]   = str(Header(admin_subject, "utf-8"))
-    admin_msg["From"]      = formataddr(("TastePro", from_addr))
+    admin_msg["From"]      = formataddr(("TastePro", user))
     admin_msg["To"]        = to_addr
     admin_msg["Reply-To"]  = email
     admin_msg["Message-ID"]= make_msgid()
@@ -78,7 +78,7 @@ def send_email(name: str, email: str, message: str):
     )
     ack_msg = MIMEText(ack_body, "plain", "utf-8")
     ack_msg["Subject"]    = str(Header(ack_subject, "utf-8"))
-    ack_msg["From"]       = formataddr(("TastePro", from_addr))
+    ack_msg["From"]       = formataddr(("TastePro", user))
     ack_msg["To"]         = email
     ack_msg["Reply-To"]   = to_addr
     ack_msg["Message-ID"] = make_msgid()
@@ -103,11 +103,11 @@ def send_email(name: str, email: str, message: str):
             s.login(user, pwd)
 
         # envía a administración
-        s.send_message(admin_msg, from_addr=from_addr, to_addrs=[to_addr])
+        s.send_message(admin_msg, from_addr=user, to_addrs=[to_addr])
 
         # envía acuse al usuario (si está activo)
         if send_ack:
-            s.send_message(ack_msg, from_addr=from_addr, to_addrs=[email])
+            s.send_message(ack_msg, from_addr=user, to_addrs=[email])
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8000, debug=True)
